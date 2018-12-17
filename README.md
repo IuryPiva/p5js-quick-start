@@ -10,7 +10,7 @@ Happy hacking =)
 
 * **Parcel** - Preconfigured with [Parcel](https://parceljs.org) for zero config imports and hot reload.
 * **TSLint** - Static analysis tool that checks your code for readability, maintainability, and functionality errors.
-* **P5 Reference** - Autocomplete and references included.
+* **P5 Reference** - Autocomplete and [p5](https://p5js.org/reference/) references included.
 
 # Commands
 - `p5qs <name>` - Create a project with the specified name
