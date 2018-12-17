@@ -14,10 +14,8 @@ cli.command("<name>")
   .option('-i, --install', 'Install dependencies')
   .action((name, options) => {
     fs.mkdirSync(name)
-    fs.copyFileSync(`${__dirname}/template/index.html`, `${name}/index.html`)
-    fs.copyFileSync(`${__dirname}/template/index.js`, `${name}/index.js`)
-    fs.copyFileSync(`${__dirname}/template/package.json`, `${name}/package.json`)
-    fs.copyFileSync(`${__dirname}/template/sketch.js`, `${name}/sketch.js`)
+    const files = fs.readdirSync(`${__dirname}/template/`)
+    for(file of files) fs.copyFileSync(`${__dirname}/template/${file}`, `${name}/${file}`)
 
     const replaceOptions = {
       files: [
@@ -29,8 +27,7 @@ cli.command("<name>")
     };
 
     try {
-      const changes = replace.sync(replaceOptions);
-      console.log('Modified files:', changes.join(', '));
+      replace.sync(replaceOptions);
     }
     catch (error) {
       console.error('Error occurred:', error);
@@ -43,6 +40,8 @@ cli.command("<name>")
     if(options.open) {
       execSync('code ' + name)
     }
+
+    console.log('Project successfully created!')
   })
 
 

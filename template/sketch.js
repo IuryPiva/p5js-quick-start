@@ -1,13 +1,16 @@
+// Force page refresh on hot reload
+if (module.hot) module.hot.accept(() => window.location.reload())
+// Enable tslint
 // @ts-check
-import * as p5 from 'p5'
+// Import p5 references
+/// <reference path="global.d.ts" />
 
-const sketch = ( /** @type p5 */ p) => {
-  p.setup = () => {
-    p.createCanvas(p.windowWidth, p.windowHeight)
-    p.background(217)
-  }
-  
-  p.draw = () => {}
+// Export the functions that are used by p5
+export function setup () {
+  createCanvas(windowWidth, windowHeight)
+  background(52)
 }
 
-export default sketch
+export function draw () {
+  
+}

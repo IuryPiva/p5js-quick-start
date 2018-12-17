@@ -1,13 +1,8 @@
-import p5 from 'p5';
-import sketch from './sketch';
+import p5 from 'p5'
 
-
-//Force page refresh on hot reload
-if (module.hot) {
-  module.hot.accept(function () {
-      window.location.reload();
-  })
+import * as sketch from './sketch'
+for(let opt in sketch) {
+  window[opt] = sketch[opt]
 }
 
-// Initialize sketch
-new p5(sketch);
+new p5()
